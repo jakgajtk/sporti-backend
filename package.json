@@ -1,12 +1,19 @@
 {
-  "name": "adonis-fullstack-app",
-  "version": "4.0.0",
-  "adonis-version": "4.0.0",
-  "description": "The fullstack application boilerplate for Adonisjs",
+  "name": "sporti-backend",
+  "version": "0.0.1",
+  "adonis-version": "0.0.1",
+  "description": "Sporti backend application",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node ace test"
+    "test": "npm run lint && adonis test",
+    "lint:clean": "standard",
+    "lint": "standard | snazzy",
+    "format": "standard --fix",
+    "precommit": "npm run lint",
+    "prepush": "npm test",
+    "migration": "adonis migration:run",
+    "seed": "adonis seed"
   },
   "keywords": [
     "adonisjs",
@@ -15,6 +22,14 @@
   "author": "",
   "license": "UNLICENSED",
   "private": true,
+  "standard": {
+    "global": [
+      "use"
+    ]
+  },
+  "bin": {
+    "snazzy": "node_modules/.bin/snazzy"
+  },
   "dependencies": {
     "@adonisjs/ace": "^4.0.7",
     "@adonisjs/ally": "^2.0.2",
@@ -26,9 +41,25 @@
     "@adonisjs/ignitor": "^1.0.14",
     "@adonisjs/lucid": "^4.0.24",
     "@adonisjs/session": "^1.0.19",
-    "@adonisjs/shield": "^1.0.4"
+    "@adonisjs/shield": "^1.0.4",
+    "@adonisjs/vow": "^1.0.13",
+    "aws-sdk": "^2.154.0",
+    "debug": "^3.1.0",
+    "jsonapi-serializer": "^3.5.5",
+    "jsonwebtoken": "^8.1.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.2",
+    "pg": "^7.4.0",
+    "snazzy": "^7.0.0",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4",
+    "socketio-jwt": "^4.5.0",
+    "uuid": "^3.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "standard": "^10.0.3"
+  },
   "autoload": {
     "App": "./app"
   }
