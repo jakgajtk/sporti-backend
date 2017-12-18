@@ -16,3 +16,6 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.get('login/facebook', 'LoginController.redirect')
+Route.get('facebook/callback', 'LoginController.callback')
